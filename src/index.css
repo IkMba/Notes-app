@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Gatile;
+    src: url("/fonts/Gatile.otf");
+  }
+}
+
+@layer components {
+  input,
+  textarea {
+    @apply border-gray-500 border outline-blue px-4;
+  }
+}
+
+body {
+  background-color: #e2e6e9;
+}
