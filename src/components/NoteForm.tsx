@@ -29,7 +29,7 @@ export default function NoteForm() {
     e.preventDefault();
     const tags = data.tags.split(",");
     const tagss = tags.map(
-      (item) => item.charAt(0).toUpperCase() + item.slice(1)
+      (item) => item.charAt(0).toUpperCase() + item.slice(1).trim()
     );
     const note = {
       ...data,

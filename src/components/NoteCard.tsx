@@ -59,11 +59,11 @@ function NoteCard({ note }: { note: noteType }) {
                     </h5>
                   )
               )}
+            </div>
 
-              <div className="flex gap-1 md:gap-2">
-                <h5>{date}</h5>
-                <h5>{time}</h5>
-              </div>
+            <div className="flex gap-1 md:gap-2">
+              <h5>{date}</h5>
+              <h5>{time}</h5>
             </div>
           </div>
         </div>
