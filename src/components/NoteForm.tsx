@@ -33,7 +33,7 @@ export default function NoteForm() {
     );
     const note = {
       ...data,
-      id: data.title + id,
+      id: (data.title + id).trim(),
       tags: tagss,
       date: date,
       time: time,
@@ -44,7 +44,7 @@ export default function NoteForm() {
   };
 
   return (
-    <div className="flex-1 bg-white px-6 py-4 mx-4 h-full">
+    <div className="flex-1 bg-white px-6 py-4 mx-2 md:mx-4 h-full">
       <h1 className="font-bold text-2xl ">Create new note</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-2 mt-2">

@@ -20,7 +20,7 @@ export default function Header() {
           alt="user"
           className="w-10 h-8 rounded-[50%]"
         />
-        <h3>{user}</h3>
+        <Link to="/">{user}</Link>
       </div>
       <nav className=" hidden md:flex gap-4 items-center font-bold text-black ">
         {navlinks.map((item, i) => (

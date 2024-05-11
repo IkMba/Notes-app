@@ -21,7 +21,7 @@ export default function NoteDetails() {
     : "/note.webp";
 
   return (
-    <div className="flex-1 px-8 py-8 bg-white rounded-lg mx-6 h-full">
+    <div className="flex-1 px-8 py-8 bg-white rounded-lg mx-2 md:mx-6 h-full">
       <div className="flex border-b border-grey justify-between items-center pb-4">
         <div className="flex items-center gap-2">
           <img src={imgSrc} alt="" className="w-20" />

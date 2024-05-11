@@ -24,7 +24,7 @@ export default function NoteEditForm() {
   };
 
   return (
-    <div className="flex-1 bg-white px-6 py-4 mx-4 min-h-[90vh]">
+    <div className="flex-1 bg-white px-6 py-4 mx-2 md:mx-4 min-h-[90vh]">
       <h1 className="font-bold text-2xl ">Create new note</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-2 mt-2">

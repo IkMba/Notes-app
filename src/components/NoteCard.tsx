@@ -49,7 +49,7 @@ function NoteCard({ note }: { note: noteType }) {
         <div className="flex-1 pr-2">
           <h3 className="font-bold text-mlg capitalize ">{title}</h3>
           <p className="text-sm">{details}</p>
-          <div className="flex justify-between text-[0.5rem] md:text-[.75rem] gap-1 mt-3 items-center text-gray">
+          <div className="flex justify-between text-[.75rem] gap-1 mt-3 items-center text-gray">
             <div className="flex gap-2">
               {tags?.map(
                 (item) =>

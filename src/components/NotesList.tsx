@@ -10,7 +10,7 @@ export default function NotesList() {
   const [query, setQuery] = useState("");
   const notesList = useSelector(getNotes);
   const searchedNotes = useSelector(searchNotes(query));
-  const notes = query ? searchedNotes : notesList;
+  const notes = query !== "" ? searchedNotes : notesList;
   const { tags } = useParams();
 
   const collections = useSelector(getTags);
@@ -66,7 +66,7 @@ export default function NotesList() {
           type="text"
           placeholder="Search notes"
           onChange={(e) => setQuery(e.target.value)}
-          className="px-2 py-1 rounded-lg text-lg border-grey w-48 lg:w-64"
+          className="py-0 px-2 md:py-1 rounded-lg text-md md:text-lg border-grey w-48 lg:w-64"
         />
       </div>
       {notes.map((item) => (

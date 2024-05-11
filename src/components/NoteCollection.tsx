@@ -19,7 +19,7 @@ export default function NotesCollection() {
 
   if (notes.length === 0)
     return (
-      <div className="flex-1 bg-white px-6 py-4 mx-4 pt-8 h-full ">
+      <div className="flex-1 bg-white px-6 py-4 mx-2 md:mx-4 pt-8 h-full ">
         <h1 className="text-xl pb-8 ">
           No notes in {tags} colection.Please add notes to this collection or go
           back to home.
