@@ -3,9 +3,11 @@ import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "../store/noteSlice";
 import { createPortal } from "react-dom";
+import { useForm } from "react-hook-form";
 
 export default function DeleteModal({ id, setDeleteModal }) {
   const dispatch = useDispatch();
+  const { handleSubmit } = useForm();
   const deleteHandler = (e) => {
     e.preventDefault();
     dispatch(deleteItem(id));
@@ -13,7 +15,10 @@ export default function DeleteModal({ id, setDeleteModal }) {
   };
 
   return createPortal(
-    <div className="fixed top-0 left-0 h-screen w-full backdrop-blur-sm bg-backdrop z-10 transiton-all transition-500 ">
+    <form
+      onSubmit={handleSubmit(deleteHandler)}
+      className="fixed top-0 left-0 h-screen w-full backdrop-blur-sm bg-backdrop z-10 transiton-all transition-500 "
+    >
       <div className=" p-6 mt-2 bg-white mx-auto w-fit z-100 rounded-lg">
         <h3 className="font-bold">
           Are you sure you want to delete this note?
@@ -33,7 +38,7 @@ export default function DeleteModal({ id, setDeleteModal }) {
           </Button>
         </div>
       </div>
-    </div>,
+    </form>,
     document.body
   );
 }

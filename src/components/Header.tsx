@@ -13,7 +13,7 @@ export default function Header() {
   const user = useSelector(getUser);
 
   return (
-    <header className="flex justify-between px-4 py-2 m-4  bg-white text-sm text-stone-900 items-center">
+    <header className="flex justify-between m-2 py-2 px-4 md:m-4  bg-white text-sm text-stone-900 items-center">
       <div className="flex items-center gap-2">
         <img
           src="/profileM1.jpg"

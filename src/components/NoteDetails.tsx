@@ -10,13 +10,13 @@ export default function NoteDetails() {
   const { title, tags, body, id } = note;
   // const note = notes.find((item) => item.id === +id);
 
-  const imgSrc = tags.includes("family")
+  const imgSrc = tags.includes("Family")
     ? "/family1.jpg"
-    : tags.includes("projects")
+    : tags.includes("Projects")
     ? "/project.jpg"
-    : tags.includes("meetings")
+    : tags.includes("Meetings")
     ? "/calendar1.webp"
-    : tags.includes("personal")
+    : tags.includes("Personal")
     ? "/personal.jpg"
     : "/note.webp";
 
@@ -34,7 +34,10 @@ export default function NoteDetails() {
 
       <div className="mt-4">
         {tags.map((item) => (
-          <h5 className="bg-bluelight py-0.5 px-1  rounded-lg w-fit my-4 text-sm text-purple">
+          <h5
+            key={item}
+            className="bg-bluelight py-0.5 px-1  rounded-lg w-fit my-4 text-sm text-purple"
+          >
             {item}
           </h5>
         ))}

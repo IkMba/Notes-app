@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { noteType } from "../constants/types";
 
 const initialState: noteType[] | any = {
@@ -32,24 +32,37 @@ const noteSlice = createSlice({
 
 export const { addUser, addItem, editItem, deleteItem } = noteSlice.actions;
 
+const state = (state) => state.notes.notes;
+
 export const getUser = (state) => state.notes.user;
 export const getNotes = (state) => state.notes.notes;
 
 export const getNote = (id) => (state) =>
   state.notes.notes.find((item) => item.id === id);
 
-export const getNotesByTags = (tag) => (state) =>
-  state.notes.notes.filter((item) => item.tags.includes(tag));
+// export const getNotesByTags = (tag) => (state) =>
+//   state.notes.notes.filter((item) => item.tags.includes(tag));
 
-export const searchNotes = (note) => (state) =>
-  state.notes.notes.filter((item) => item.title.includes(note));
+// export const searchNotes = (note) => (state) =>
+//   state.notes.notes.filter((item) => item.title.includes(note));
 
-export const getTags = (state) => {
-  const tagsArr = state.notes.notes.map((item) => item.tags);
+//export const getTags = (state) => state.notes.notes.map((item) => item.tags);
+
+export const getTags = createSelector([state], (tags) => {
+  const tagsArr = tags.map((item) => item.tags);
   const arr = [].concat(...tagsArr).map((item) => item);
-  const tags = [...new Set(arr)];
-  // const tags = tagsArr.filter((item, index) => tagsArr.indexOf(item) === index);
-  return tags;
-};
+  const collections = [...new Set(arr)];
+  return collections;
+});
+
+export const getNotesByTags = (note) =>
+  createSelector([state], (tags) => {
+    return tags.filter((item) => item.tags.includes(note));
+  });
+export const searchNotes = (note) =>
+  createSelector([state], (tags) => {
+    return tags.filter((item) => item.title.includes(note));
+  });
+// const tags = tagsArr.filter((item, index) => tagsArr.indexOf(item) === index);
 
 export default noteSlice.reducer;

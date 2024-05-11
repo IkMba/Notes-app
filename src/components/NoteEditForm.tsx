@@ -13,8 +13,6 @@ export default function NoteEditForm() {
   const navigate = useNavigate();
   const note = useSelector(getNote(paramsId));
   const { title, tags, body, id } = note;
-  console.log(note);
-  // const id = notes.length + 1;
 
   const onSubmit = (data, e): SubmitHandler<noteType> => {
     e.preventDefault();

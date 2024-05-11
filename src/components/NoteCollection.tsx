@@ -11,7 +11,8 @@ import Button from "./Button";
 
 export default function NotesCollection() {
   const { tags } = useParams();
-  const notes = useSelector(getNotesByTags(tags));
+  const tag = tags && tags.charAt(0).toUpperCase() + tags.slice(1);
+  const notes = useSelector(getNotesByTags(tag));
   const collections = useSelector(getTags);
 
   const [showCollection, setShowCollection] = useState(false);
@@ -48,7 +49,7 @@ export default function NotesCollection() {
             <div className="absolute -right-4 z-10 bg-white p-4 text-xl md:text-lg shadow-lg">
               {collections.map((item) => (
                 <div
-                  className={`flex flex-col capitalize py-2 ${
+                  className={`flex flex-col capitalize py-2 font-semibold ${
                     item === tags ? "bg-blue py-1 px-2 rounded-md" : ""
                   }`}
                   key={item}
@@ -66,8 +67,8 @@ export default function NotesCollection() {
         </div>
       </div>
       {notes.map((item) => (
-        <div className="mt-4">
-          <NoteCard note={item} key={item.id} />
+        <div className="mt-4" key={item.id}>
+          <NoteCard note={item} />
         </div>
       ))}
     </div>

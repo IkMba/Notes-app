@@ -12,6 +12,7 @@ export default function NotesList() {
   const searchedNotes = useSelector(searchNotes(query));
   const notes = query ? searchedNotes : notesList;
   const { tags } = useParams();
+
   const collections = useSelector(getTags);
   const [showCollection, setShowCollection] = useState(false);
 
@@ -25,7 +26,7 @@ export default function NotesList() {
     );
 
   return (
-    <div className="flex-1 bg-white px-6 py-4 mx-4 h-full min-h-[90vh]">
+    <div className="flex-1 bg-white mx-2 px-2 py-2 md:px-6 md:py-4 md:mx-4 h-full min-h-[90vh]">
       <div className="flex justify-between items-center   font-semibold mb-2 rounded-lg">
         <div className="flex gap-1">
           <PiNoteLight className="text-2xl" />
@@ -70,7 +71,7 @@ export default function NotesList() {
       </div>
       {notes.map((item) => (
         <div className="mt-4" key={item.id}>
-          <NoteCard note={item} key={item.id} />
+          <NoteCard note={item} />
         </div>
       ))}
       {notes.length === 0 && query !== "" && (

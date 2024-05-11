@@ -28,10 +28,13 @@ export default function NoteForm() {
   const onSubmit = (data, e): SubmitHandler<noteType> => {
     e.preventDefault();
     const tags = data.tags.split(",");
+    const tagss = tags.map(
+      (item) => item.charAt(0).toUpperCase() + item.slice(1)
+    );
     const note = {
       ...data,
       id: data.title + id,
-      tags: tags,
+      tags: tagss,
       date: date,
       time: time,
     };
@@ -56,10 +59,10 @@ export default function NoteForm() {
           />
         </div>
         <div className="flex flex-col gap-2 mt-4">
-          <label htmlFor="tags" className="font-semibold text-lg">
+          <label htmlFor="tags" className="font-semibold text-lg ">
             Tags
           </label>
-          <input type="text" {...register("tags")} />
+          <input type="text" {...register("tags")} className="capitalize" />
         </div>
         <div className="flex flex-col gap-2 mt-4">
           <label htmlFor="body" className="font-semibold text-lg">
