@@ -9,6 +9,7 @@ import { PiNoteLight } from "react-icons/pi";
 export default function NotesList() {
   const [query, setQuery] = useState("");
   const notesList = useSelector(getNotes);
+
   const searchedNotes = useSelector(searchNotes(query));
   const notes = query !== "" ? searchedNotes : notesList;
   const { tags } = useParams();
